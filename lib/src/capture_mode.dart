@@ -7,4 +7,8 @@ enum CaptureMode {
 
   /// Select a window, that you want to capture.
   window,
+
+  windowNoShadow,
+
+  wallpaper,
 }

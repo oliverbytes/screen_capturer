@@ -7,6 +7,8 @@ final Map<CaptureMode, List<String>> _knownCaptureModeArgs = {
   CaptureMode.region: ['-i', '-r'],
   CaptureMode.screen: ['-C'],
   CaptureMode.window: ['-i', '-w'],
+  CaptureMode.windowNoShadow: ['-i', '-w', '-o'],
+  CaptureMode.wallpaper: ['-i', '-w', '-o', '-S'],
 };
 
 class SystemScreenCapturerImplMacOS extends SystemScreenCapturer {
@@ -23,6 +25,7 @@ class SystemScreenCapturerImplMacOS extends SystemScreenCapturer {
       silent ? '-x' : '',
       imagePath,
     ];
+
     arguments.removeWhere((e) => e.isEmpty);
 
     await Process.run(
